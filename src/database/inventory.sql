@@ -6,6 +6,7 @@ CREATE TABLE users (
 	id INT NOT NULL,
     name VARCHAR(50) NOT NULL,
     position VARCHAR(50),
+    password VARCHAR(255) NOT NULL,
     register_data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
