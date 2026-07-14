@@ -50,17 +50,15 @@ const user = {
         }
 
         //JWT
-        const iatTimestamp = Math.floor(Date.now() / 1000);
 
         payload = {
             sub: userObj.id,
             position: userObj.position,
-            iat: iatTimestamp
         }
 
-        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "1hr" });
+        const token = jwt.sign(payload, process.env.JWT_KEY, { algorithm: "HS256", expiresIn: 3600 });
 
-        return res.json({ token });
+        return res.status(200).json({ token });
     }
 }
 
