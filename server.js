@@ -8,6 +8,9 @@ app.use(express.json());
 const usersRoutes = require("./src/router/users.js");
 app.use("/api", usersRoutes);
 
+const productsRouter = require("./src/router/products.js");
+app.use("/api", productsRouter);
+
 app.listen(process.env.PORT, () => {
     console.log("Server running");
 })
