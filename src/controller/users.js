@@ -45,6 +45,10 @@ const user = {
 
         const [row] = await db.execute(query, [userObj.id]);
 
+        if(row.length === 0) {
+            return res.status(400).json({ body: userObj, error: "User id not identified"})
+        }
+
         if(!await bcrypt.compare(userObj.password, row[0].password)) {
             return res.status(401).json({ body: userObj, error: "Incorrect password" });
         }
